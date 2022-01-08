@@ -114,7 +114,23 @@ div {
 </style>
 ```
 
-SFCs are not valid JavaScript or HTML. You can’t run them in the browser, so you need to compile SFCs before you send them to the client. A compiled SFC becomes a JavaScript object with the template converted to a render function.
+SFCs are not valid JavaScript or HTML. You can’t run them in the browser, so you need to compile SFCs before you send them to the client. 
+
+---
+
+A compiled SFC becomes a JavaScript object with the template converted to a render function.
+
+```javascript
+Module.exports = default {
+ render() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c('p', [_vm._v("I'm a template")])
+},
+  name: 'example-template'
+}
+```
 
 ---
 # Component Contract
@@ -186,6 +202,8 @@ test('sanity test', () => {
 ![Mounting Components](mounting-component.png)
 
 ---
+
+* When you import a compiled Vue component, it’s just an object (or function) with a render function and some properties.
 
 ```javascript
 import { shallowMount } from '@vue/test-utils'
