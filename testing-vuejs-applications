@@ -1,0 +1,140 @@
+---
+marp: true
+theme: default
+---
+
+# Testing Vue.js Applications
+
+Outline olacak
+
+---
+
+* **Testing** an application is the process of checking that an application behaves correctly. Testing is not always beneficial. If a test doesn’t save you time, then it’s not
+worth writing.
+
+* **Manual testing** is where you check that an application works correctly by interacting with it yourself. Automated testing is the practice of writing programs to perform the checks for you.
+
+* **Automated testing** is the process of using programs to check that your software works correctly.
+
+---
+
+* A **user journey** is a list of steps that a user can take through an
+application. For example—open application, fill out form, click submit.
+
+* Although some of our manual testing time was spent testing new features, most was taken up testing old features to check they still worked. This kind of testing is known as **regression testing**. Regression tests are difficult tasks for us humans to do—they’re repetitive, they require a lot of attention, and there’s no creative input. Put simply, they’re boring. Luckily, computers are great at tasks like these, and that’s where automated testing comes in!
+
+---
+
+* In frontend applications, **end-to-end tests** automate a browser to check that an application works correctly from the user’s perspective.
+
+```javascript
+function testCalculator(browser) {
+  browser
+    .url('http://localhost:8080')
+    .click('#button-1')
+    .click('#button-plus')
+    .click('#button-1')
+    .click('#button-equal')
+    .assert.containsText("#result", "2")
+    .end();
+}
+```
+
+--- 
+
+* **Unit testing** is the process of running tests against the smallest parts of an application (units). Normally the units you test are functions, but in Vue apps, components are also units to test
+
+* A happy side effect of unit tests is that they provide documentation
+
+* **Snapshot tests** are similar to Spot the Difference. A snapshot test takes a picture of your running application and compares it against previously saved pictures.
+
+---
+
+![The Testing Pyramid](testing-pyramid.png)
+
+- Unit tests are fast
+- Snapshot tests are fast too
+- e2e is hard to debug and time consuming.
+
+---
+
+* **Test-driven development (TDD)** is a workflow where you write a failing test before you write the source code. Before you write code in a component, you write a test to makes sure the component behaves correctly.
+
+* A popular TDD approach is red, green, refactor. Red, green, refactor is where you write a failing test (red), make the test pass (green), and then refactor the code to make it more readable.
+
+---
+
+* Creating a Vue instance that generates DOM nodes is known as mounting an instance.
+
+* You can describe the DOM nodes in two main ways: `templates and render functions.`
+
+```javascript
+new Vue({
+  // ..
+  template: '<div>{{message}}</div>',
+// .. })
+```
+
+For Vue to use to generate DOM nodes from a template, it needs to convert the template into `render functions` -—known as compiling the template.
+
+```javascript
+new Vue({
+  // ..
+  render(createElement) {
+    return createElement('div', this.message)
+},
+// .. })
+```
+
+---
+
+Vue runs render functions to generate a `virtual DOM` --which is a JavaScript representation of the real DOM.
+
+```javascript
+{
+  tag: 'div',
+  children: [
+    {
+      text: 'Hello Vue.js'
+    } 
+  ]
+}
+```
+
+---
+
+A single-file component (SFC)
+```javascript
+<template>
+  <div>{{message}}</div>
+</template>
+<script>
+  export default {
+    data: {
+      message: 'Hello Vue.js!'
+    } 
+  }
+</script>
+<style> 
+div {
+    color: red; 
+}
+</style>
+```
+
+SFCs are not valid JavaScript or HTML. You can’t run them in the browser, so you need to compile SFCs before you send them to the client. A compiled SFC becomes a JavaScript object with the template converted to a render function.
+
+---
+
+Component inputs:
+* Component props
+* User actions (like a button click) 
+* Vue events
+* Data in a Vuex store
+
+Component outputs:
+* Emitted events
+* External function calls
+
+---
+
