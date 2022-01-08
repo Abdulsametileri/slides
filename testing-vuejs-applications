@@ -55,12 +55,6 @@ function testCalculator(browser) {
 
 ---
 
-* **Test-driven development (TDD)** is a workflow where you write a failing test before you write the source code. Before you write code in a component, you write a test to makes sure the component behaves correctly.
-
-* A popular TDD approach is red, green, refactor. Red, green, refactor is where you write a failing test (red), make the test pass (green), and then refactor the code to make it more readable.
-
----
-
 * Creating a Vue instance that generates DOM nodes is known as mounting an instance.
 
 * You can describe the DOM nodes in two main ways: `templates and render functions.`
@@ -211,3 +205,16 @@ describe('Item.vue', () => {
 In school, the teacher doesn’t give you the master copy of a workbook to write on. The teacher photocopies it so that you can use it without affecting the original workbook.
 
 Think of the Vue base constructor as the master copy. If you change the Vue base constructor, you change every copy that’s made from Vue in the future. A `localVue` constructor is like a photocopy of the master copy. It’s the same as the original and can be used in the same way, but you can make changes to it without affecting the original.
+
+```javascript
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
+return mount(FavoriteList, {
+    localVue,
+    store: new Vuex.Store({
+        state,
+        getters
+    })
+});
+```
