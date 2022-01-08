@@ -12,14 +12,13 @@ Outline olacak
 * **Testing** an application is the process of checking that an application behaves correctly. Testing is not always beneficial. If a test doesn’t save you time, then it’s not
 worth writing.
 
-* **Manual testing** is where you check that an application works correctly by interacting with it yourself. Automated testing is the practice of writing programs to perform the checks for you.
+* **Manual testing** is where you check that an application works correctly by interacting with it yourself. 
 
 * **Automated testing** is the process of using programs to check that your software works correctly.
 
 ---
 
-* A **user journey** is a list of steps that a user can take through an
-application. For example—open application, fill out form, click submit.
+* A **user journey** is a list of steps that a user can take through an application. For example—open application, fill out form, click submit. (*journey testing*)
 
 * Although some of our manual testing time was spent testing new features, most was taken up testing old features to check they still worked. This kind of testing is known as **regression testing**. Regression tests are difficult tasks for us humans to do—they’re repetitive, they require a lot of attention, and there’s no creative input. Put simply, they’re boring. Luckily, computers are great at tasks like these, and that’s where automated testing comes in!
 
@@ -42,9 +41,7 @@ function testCalculator(browser) {
 
 --- 
 
-* **Unit testing** is the process of running tests against the smallest parts of an application (units). Normally the units you test are functions, but in Vue apps, components are also units to test
-
-* A happy side effect of unit tests is that they provide documentation
+* **Unit testing** is the process of running tests against the smallest parts of an application (units). Normally the units you test are functions, but in Vue apps, **components are also units to test**
 
 * **Snapshot tests** are similar to Spot the Difference. A snapshot test takes a picture of your running application and compares it against previously saved pictures.
 
@@ -75,7 +72,7 @@ new Vue({
 // .. })
 ```
 
-For Vue to use to generate DOM nodes from a template, it needs to convert the template into `render functions` -—known as compiling the template.
+For Vue to use to generate DOM nodes from a template, it needs to convert the template into `render functions` -—known as *compiling the template.*
 
 ```javascript
 new Vue({
@@ -103,7 +100,8 @@ Vue runs render functions to generate a `virtual DOM` --which is a JavaScript re
 
 ---
 
-A single-file component (SFC)
+# A single-file component (SFC)
+
 ```javascript
 <template>
   <div>{{message}}</div>
@@ -125,6 +123,7 @@ div {
 SFCs are not valid JavaScript or HTML. You can’t run them in the browser, so you need to compile SFCs before you send them to the client. A compiled SFC becomes a JavaScript object with the template converted to a render function.
 
 ---
+# Component Contract
 
 Component inputs:
 * Component props
@@ -137,4 +136,78 @@ Component outputs:
 * External function calls
 
 ---
+# Basic overview of Webpack
 
+* The most popular JavaScript build tool is **webpack**. Webpack is a module bundler. Its main purpose is to bundle JavaScript files written as modules into a single file for use in a browser, but it’s also capable of transforming, bundling, or packaging other assets, like Vue SFCs.
+
+* In typical Vue App, src (aka source code) directory is bundled by webpack during the build process.
+
+---
+# Basic overview of Linting
+
+* **Linting** is the process of checking code for potential errors and formatting issues. Linting is a useful way to enforce code style on a project.
+
+* You can encounter some linter issues using Jest. If linter does not know the jest methods (test, describe etc.) comes from, it gives an lint error. 
+
+```javascript
+"env": {
+    "node": true,
+    "jest": true
+},
+```
+Adding `jest` props true in eslintConfig, resolves error.
+
+---
+
+* The first step when you set up a testing system is to write a simple test to check that the system is set up correctly. This is known as a **sanity test**. 
+
+* A **sanity test** is a test that always passes. If the sanity test fails, you know there is a problem with the test setup.
+
+```javascript
+test('sanity test', () => {
+  return
+})
+```
+
+---
+# Jest Tranformers
+
+* Vue single-file components aren’t valid JavaScript. You need to compile them before you can use them in a JavaScript application.
+
+* `babel-jest` compiles modern JavaScript into JavaScript that can run in Node, and `vue-jest` compiles SFCs into JavaScript. (Jest transformers)
+
+```javascript
+"jest": {
+  "transform": {
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.vue$": "vue-jest"
+  }
+}
+```
+
+--- 
+
+# Mounting Vue Instance
+
+![Mounting Components](mounting-component.png)
+
+---
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import Item from '../Item.vue'
+describe('Item.vue', () => {
+  test('renders item', () => {
+    const wrapper = shallowMount(Item)
+    expect(wrapper.text()).toContain('item')
+  })
+)
+```
+
+---
+
+# Vue—the master copy
+
+In school, the teacher doesn’t give you the master copy of a workbook to write on. The teacher photocopies it so that you can use it without affecting the original workbook.
+
+Think of the Vue base constructor as the master copy. If you change the Vue base constructor, you change every copy that’s made from Vue in the future. A `localVue` constructor is like a photocopy of the master copy. It’s the same as the original and can be used in the same way, but you can make changes to it without affecting the original.
