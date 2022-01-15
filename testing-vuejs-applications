@@ -397,15 +397,17 @@ export default {
   },
   computed: {
     numbers() {
-      const evens = []
+      const result = []
+
+      let remainder = this.even ? 0 : 1
 
       for (let i = 1; i < 10; i++) {
-        if (i % 2 === 0) {
-          evens.push(i)
+        if (i % 2 === remainder) {
+          result.push(i)
         }
       }
 
-      return evens.join(", ")
+      return result.join(", ")
     }
   }
 }
@@ -419,7 +421,7 @@ export default {
 
 ```javascript
  const wrapper = mount(NumberRenderer, {
-  props: {
+  propsData: {
     even: true
   }
  })
@@ -432,7 +434,7 @@ export default {
 ``` javascript
 it("renders odd numbers", () => {
   const localThis = { even: false }
-  expect(NumberRenderer.computed.numbers()).toBe("1, 3, 5, 7, 9")
+  expect(NumberRenderer.computed.numbers.call(localThis)).toBe("1, 3, 5, 7, 9")
 })
 ```
 * we need to use `call`, which lets us bind an alternative `this` object, in our case, one with a `even` property.
