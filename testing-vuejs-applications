@@ -5,7 +5,16 @@ theme: default
 
 # Testing Vue.js Applications
 
-Outline olacak
+- Testing (Manual, Automated, Journey, Regression, e2e, Unit, Snapshot)
+- Vue infrastructure (SFC, Rendering Components)
+- Webpack, linting, jest transformers
+- Vue test utils
+- Mounting Vue Instance
+- Simulating User Interaction
+- Manipulating Component State
+- Mocking Props
+- Testing API Calls
+- Using `call` on tests
 
 ---
 
