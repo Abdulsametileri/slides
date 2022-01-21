@@ -5,11 +5,22 @@ theme: default
 
 # ATDD
 
-Outline olabilir
+- What is Acceptance Testing?
+- What is TDD?
+- Unit test
+- Test Doubles (mock, stub, spy)
+- Given When Then Pattern
+- What is Puppeteer?
+- What is Cucumber?
+- Our Acceptance Project Template
 
 ---
 
 # What is Acceptance Testing?
+
+* Acceptance tests are critical in an agile environment because they answer the questions, `“How do I know when I am done?”` for developers and `“Did I get what I wanted?”` for users.
+
+* Acceptance criteria defines `“what needs to be done”` and acceptance tests define `“how it should be done.”` Acceptance tests are organized similar to the arrange-act-assert sections of a unit test. However, in acceptance tests, these sections are usually known as given-when-then. (Given) some context, (When) some action is carried out, (Then) a set of consequences should happen.
 
 ---
 
@@ -72,7 +83,16 @@ public void Purchase_succeeds_when_enough_inventory()
 
 ---
 
-# Mocks & Stubs: What is the difference?
+# Mocks & Stubs & Spy
+
+* **Stub**: a dummy piece of code that lets the test run, but
+you don't care what happens to it.
+
+* **Mock**: a dummy piece of code that you VERIFY is called correctly as part of the test.
+
+* **Spy**: a dummy piece of code, that intercepts some calls
+to a real piece of code, allowing you to verify calls without
+replacing the entire original object.
 
 ---
 
