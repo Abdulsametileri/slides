@@ -13,7 +13,7 @@ theme: default
 - Simulating User Interaction
 - Manipulating Component State
 - Mocking Props
-- Testing API Calls
+- Mocking API Calls
 - Using `call` on tests
 
 ---
