@@ -16,7 +16,7 @@ theme: default
 
 ## Handling Error Twice
 
-### Problem
+### Problem
 ```go
 func GetRoute(srcLat, srcLng, dstLat, dstLng float32) (Route, error) { 
     err := validateCoordinates(srcLat, srcLng)
@@ -86,8 +86,7 @@ Output as follows:
 2021/06/01 20:35:12 failed to validate source coordinates:
     invalid latitude: 200.000000
 ```
-
-*Show Content Query API Example*
+[Content Query API example](https://gitlab.trendyol.com/-/ide/project/discovery/indexing-pdp/content-query-api/edit/develop/-/application/)
 
 ---
 
@@ -202,7 +201,7 @@ We want to return an error, if any. Hence, there’s no point in waiting until t
 
 ## Not Closing Transient Resources: Http Body
 
-### Problem
+### Problem
 
 ```go
 type handler struct {
@@ -225,7 +224,7 @@ func (h handler) getBody() (string, error) {
 
 - This method looks OK, and it correctly returns the HTTP response body. However, there’s a resource leak. :thinking:
 
-### Solution
+### Solution
 ```go
 defer func() {
     err := resp.Body.Close()
