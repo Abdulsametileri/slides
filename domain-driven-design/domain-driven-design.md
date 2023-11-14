@@ -3,6 +3,17 @@ marp: true
 theme: default
 ---
 
+# Table Of Contents
+  - What is DDD, business domain, subdomain?
+  - What is ubiquitious language and bounded context?
+  - Integrating Bounded Contexts (ACL, Open Host etc)
+  - Context Map
+  - Value, Entity, Agggregate and Aggregate roots?
+  - Domain events, Domain services
+  - Event storming
+  - Architectural Patterns (Layered, ports & adapters, CQRS)
+  - Integrating Patterns (Outbox, Saga)
+
 # What is DDD?
 
 **Domain-Driven design** is an approach to software development that centers the development on programming a domain model that has a rich understanding of the processes and rules of a domain. *Martin Fowler*
@@ -10,6 +21,16 @@ theme: default
 The domain-driven design (DDD) methodology can be divided into two main parts: **strategic design** and **tactical design**. 
 - The strategic aspect of DDD deals with answering the questions of **“what?” and “why?”**—what software we are building and why we are building it. 
 - The tactical part is all about the **“how”**—how each component is implemented
+
+---
+
+# DDD Mind Map
+
+![DDD Mind Map](images/ddd-mind-map.png)
+
+**Note:** DDD aims to tackle business complexity, not technical complexity.
+
+---
 
 # What is business domain?
 
@@ -160,4 +181,187 @@ Instead, **a ubiquitous language is ubiquitous only in the boundaries of its bou
 
 The integrations among the bounded contexts can be plotted on a context map. **This tool gives insight into the system’s high-level design, communication patterns, and organizational issues.**
 
+<!--what/why kısmını tartıştık, şimdi how kısmına geçebiliriz -->
+
 # Tactical Design
+
+<!--Hayatımız her zaman CRUD olmuyor, complex business süreçlerini kodlamaya ihtiyacımız oluyor. Bunun içinde
+domain model pattern'i sunuluyor -->
+
+**The domain model pattern** is intended to cope with cases of complex business logic. Here, instead of CRUD interfaces, we deal with complicated state transitions, business rules, and invariants *(rule in our domain that must always be true)*
+
+**A domain model is** an object model of the domain that incorporates both behavior and data. 
+
+DDD’s tactical patterns *—aggregates, value objects, entities, domain events, and domain services—* are the building blocks of such an object model.
+
+All of these patterns share a common theme: **they put the business logic first**.
+
+# What is Value Objects?
+- Measures, quantifies, or describes a thing in a domain. <!--color rgb den oluşur -->
+- Identity on based on composition values. Do not require an explicit ID field <!--color rgb -->
+- Immutable
+- Compared using all values
+- No side effects
+
+String is a value object. (replaceAll, toUpper, toLower)
+Money is a value object.
+Dates are a classic value object and there’s all kinds of logic with them. *(Eric Evans)*
+
+---
+<!--ubiqitious language sağlamalıyız. -->
+
+Relying exclusively on the language’s standard library’s primitive data types—such as strings, integers, or dictionaries—to represent concepts of the business domain is known as the [primitive obsession](https://wiki.c2.com/?PrimitiveObsession) code smell.
+
+![Solving primitive obsession](images/primitive-obsession-solution.png)
+
+---
+
+# What is Entity?
+
+**An entity** is the opposite of a value object. It requires an explicit identification field to distinguish between the different instances of the entity.
+
+![Entity Objects](images/entity-object.png)
+
+![Identification Required](images/identification-required.png)
+<!--Propertyleri aynı demek, anyı obje demek değiller işte. -->
+
+- Contrary to value objects, entities are not immutable and are expected to change.
+
+---
+
+### **How we can decide domain object value or entity?**
+
+![Considering Domain objects](images/considering-domain-objects.png)
+
+Try and make everything a value object to start with until it does not fit your use case. At that point, it can be upgraded to an entity.
+
+# What is aggregate?
+
+**The aggregate pattern** refers to a group of domain objects that can be treated as one for some behaviors. Some examples of aggregate patterns are:
+
+- **An order**: Typically, an order consists of individual items, but it is helpful to treat them as a single thing (an order) for some purposes within our system.
+
+- **A team**: A team consists of many employees. In our system, we would likely have a domain object for employees, but grouping them and applying behaviors to them as a team would be helpful in situations such as organizing departments.
+
+- **A wallet**: Typically, a wallet (even a virtual one) contains many cards and potential currencies for many countries and maybe even cryptocurrencies! We may want to track the value of the wallet over time, and to do that; we may treat the wallet as an aggregate.
+
+![aggregate-example](images/aggregate-example.png)
+
+Since an aggregate’s state can only be modified by its own business logic, the aggregate also acts as a **transactional boundary**. All changes to the aggregate’s state should be committed transactionally as one atomic operation. If an aggregate’s state is modified, either all the changes are committed or none of them is.
+
+--- 
+
+## What is Aggregate root?
+Since an aggregate represents a hierarchy of entities, only one of them should be designated as the aggregate’s public interface—the aggregate root.
+
+![Aggregate root](images/aggregate-root.png)
+
+<!-- Order addresi almak istiyorsa Addres’e doğrudan bağlanmamalı. Agreegate root üzerinden iletişimi kurmalı. Addres’e aggregate dışından bağlantı kurulmamalı. -->
+
+<!-- aggregate root test ederken kendimize şunu sorarız ben bunu silsem diğer objelerinde silinmesi gerekir mi? Appointment sildin ya mesela doktor da mı silincek gibi. -->
+
+- Aggregate root is responsible for maintaining the rules of the aggregate!
+
+- Aggregates should reflect the ubiquitous language. The terminology that is used for the aggregate’s name, its data members, its actions, and its domain events all should be formulated in the bounded context’s ubiquitous language.
+
+### What is the domain events?
+
+- A record of business-significant occurence within a Bounded Context. *OrderPlacedEvent, OrderCanceledEvent.*
+
+<!-- zaten gerçekleşmiş event oldukları için past tense isimlendirilme yapılır -->
+
+![domain-event](images/domain-event.png)
+
+- Use a domain event to capture an occurrence of something that happened in the domain. (Vaugh Vernon)
+
+<!--Burada event sourcing'den örnek verilebilir. Geleneksel state'i sürekli override etmek
+yerine, tüm state değişimleri versionlayıp teker teker store ediyoruz. -->
+
+---
+
+## What is the domain services?
+
+- Sooner or later, you may encounter business logic that either doesn’t belong to any aggregate or value object, or that seems to be relevant to multiple aggregates. In such cases, domain-driven design proposes to implement the logic as **a domain service**.
+
+- A domain service is a stateless object that implements the business logic. In the vast majority of cases, such logic orchestrates calls to various components of the system to perform some calculation or analysis.
+
+---
+
+# Event Storming
+
+**EventStorming** is a fun and engaging workshop that uses colorful sticky notes to quickly visualize the building blocks of the flows that make up your application. 
+
+It **intends to uncover as many of the implicit details locked away in the heads of a few people and share that knowledge with domain experts and developers alike.** The workshop is made up of a series of steps that expand on the work that came before to build a visual representation of a domain or problem
+
+![event storming](images/event-storming.png)
+
+---
+
+## Architectural Patterns
+
+### Layered architecture
+
+<!-- her layerin bir görevi var bunu interfaceler aracılığı ile konuşturuyosun.
+bir katmanda değişiklik diğerini etkilemiyor. reusability sağlayabiliyorsun. Fakat burada technical bir decomposition var. business logic ile data access implementation beraber burada.
+ -->
+
+![Layered architecture](images/layered-architecture.png)
+
+### Ports & Adapters (Hexagonal architecture)
+
+- The ports & adapters architecture addresses the shortcomings of the layered architecture and is a better fit for implementation of **more complex business logic**.
+
+![Hexagonal architecture](images/hexagonal-architecture.png)
+
+<!--Business logic'i merkeze koyuyor ve infra yı ayırıyor. -->
+
+---
+
+### Command-Query Responsibility Segragation (CQRS)
+
+- The command-query responsibility segregation (CQRS) pattern is based on **the same organizational principles for business logic and infrastructural concerns as ports & adapters.** It differs, however, in the way the system’s data is managed. The CQRS pattern represents the same data in multiple models.
+
+![CQRS](images/cqrs.png)
+
+We need to do polygot modeling. Why? :thinking:
+
+Because a single system might use **a document store** as its operational database, **a column store** for analytics/reporting, and **a search engine** for implementing robust search capabilities. 
+
+**There is no perfect database!!**
+
+---
+
+## Integrating Patterns
+
+### Outbox Pattern
+
+- The outbox pattern ensures reliable publishing of domain events.
+
+![outbox pattern](images/outbox-pattern.png)
+
+A service reliably publishes a message by inserting it into an OUTBOX table as part of the **transaction** that updates the database. The Message Relay reads the OUTBOX table and publishes the messages to a message broker.
+
+![outbox pattern example](images/outbox-pattern-example.png)
+
+- Debezium, LinkedIn databus, DynamoDB streams
+
+![outbox pattern with transaction log](images/outbox-pattern-transaction-log-example.png)
+
+<!--WAL, cdc den bahsedelim.-->
+
+### Saga
+
+- A saga is a long-running business process.
+
+![saga](images/saga.png)
+
+- The basic principle of the saga pattern is a simple one; for each action we take within our system, we also define a **compensating action** that we call in the event we need to roll back
+
+- When a step of a saga fails because of a business rule violation, the saga must explicitly undo the updates made by previous steps by executing compensating transactions. 
+
+![compensating-action](images/compensation-action.png)
+
+
+**The outbox pattern** is a reliable way to publish aggregates’ domain events. It ensures that domain events are always going to be published, even in the face of different pro‐ cess failures.
+
+**The saga pattern** can be used to implement simple cross-component business pro‐ cesses. More complex business processes can be implemented using the process man‐ ager pattern. Both patterns rely on asynchronous reactions to domain events and the issuing of commands.
