@@ -113,7 +113,7 @@ From time to time, BusVNext issues special discounts, both to attract new custom
 
 - Each term of the ubiquitous language should have **one and only one meaning**.
 
-- Tools such as wiki-based **glossaries** and **Gherkin tests** can greatly alleviate the process of documenting and maintaining a ubiquitous language.
+- Tools such as wiki-based **glossaries** and [**Gherkin tests**](https://github.com/modanisa/bootcamp-project-acceptance/blob/master/features/category.feature) can greatly alleviate the process of documenting and maintaining a ubiquitous language.
 
 ## Example
 
@@ -362,6 +362,10 @@ A service reliably publishes a message by inserting it into an OUTBOX table as p
 ![compensating-action](images/compensation-action.png)
 
 
-**The outbox pattern** is a reliable way to publish aggregates’ domain events. It ensures that domain events are always going to be published, even in the face of different pro‐ cess failures.
+**The outbox pattern** is a reliable way to publish aggregates’ domain events. It ensures that domain events are always going to be published, even in the face of different process failures.
 
 **The saga pattern** can be used to implement simple cross-component business pro‐ cesses. More complex business processes can be implemented using the process man‐ ager pattern. Both patterns rely on asynchronous reactions to domain events and the issuing of commands.
+
+---
+
+# Thank you <3
