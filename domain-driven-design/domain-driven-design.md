@@ -364,7 +364,7 @@ A service reliably publishes a message by inserting it into an OUTBOX table as p
 
 **The outbox pattern** is a reliable way to publish aggregates’ domain events. It ensures that domain events are always going to be published, even in the face of different process failures.
 
-**The saga pattern** can be used to implement simple cross-component business pro‐ cesses. More complex business processes can be implemented using the process man‐ ager pattern. Both patterns rely on asynchronous reactions to domain events and the issuing of commands.
+**The saga pattern** can be used to implement simple cross-component business processes. More complex business processes can be implemented using the process manager pattern. Both patterns rely on asynchronous reactions to domain events and the issuing of commands.
 
 ---
 
