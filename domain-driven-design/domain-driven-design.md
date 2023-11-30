@@ -295,6 +295,8 @@ It **intends to uncover as many of the implicit details locked away in the heads
 
 ![event storming](images/event-storming.png)
 
+https://en.wikipedia.org/wiki/Event_storming
+
 ---
 
 ## Architectural Patterns
