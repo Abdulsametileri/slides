@@ -108,3 +108,41 @@ Bir kişinin development leveli değişken bir kere verdin hep öyle liderlik ya
  - SLII Leadership is not something you do to people. It's something **you do with people**. ℹ️
 
 --- 
+
+# Consensus Building
+
+- **Consensus** means coming to an agreement. Creating consensus in a team setting means finding a proposal acceptable enough that all team members can support it, **with no member opposing it**. ⚠️
+<!--
+Consensus oy çokluğu demek değildir, oy birliği demektir.
+
+Consensus building’in en önemli faydalarından biri: kararda kişinin de görüşü alındığında ve kararda onun da katkısı olduğunda o kişinin commitment’i daha da artıyor.
+-->
+
+- Need to provide **trust environment** 🤝
+<!--Son madde kritik ortada bir güven ortamı fikir beyan etmede çekingenlik olmaması gerekiyor. Mesela insanlar yeterli güveni hissetmediği zaman sessiz kalmayı tercih edebilir. -->
+
+- How to change someone's mind? 🤔
+<!-- 
+Başkalarının fikrini siz değiştiremezsiniz, insanlar kendi fikirlerini ancak kendileri değiştirebilirler.
+
+Alternatifleri konuşurken daima Pros dan başlayalım, cons’dan başlamayalım sebebi ise insan psikolojisi.
+-->
+
+- What Facilitators do for a process? 🤔
+
+<!--
+Varsayma!
+Özel konuşulan şeyleri toplum içinde paylaşmayın.
+
+Dikte etmeyin, bırakın ekip karar alsın.
+
+Kimsenin psikologu değilsiniz. Adam karısıyla kavga edip vs. gelmiştir o anda yapabileceğiniz bir şey yok.
+
+Tutamayacağınız sözler vermeyin.
+
+Agreement’e zorlamayın.!!
+-->
+
+---
+
+# Radical Candor
