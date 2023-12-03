@@ -200,3 +200,29 @@ Aksiyon: Davranışı değiştirmesi konusunda net aksiyonlar önerin.
  -->
 
 <!-- Sen hatalısın yerine -> bu iş hatalı demek.-->
+
+---
+
+# Empowered Product Teams
+
+- Eradicate the old idea that "Technology" is in service to the business. With this mindset, your business will not transform into a great Product company. ℹ️
+  
+<!-- Teknoloji ekibinin işi business ekibine hizmet etmektir şeklinde düşünüyorsanız siz iyi bir Product şirketi olamazsınız diyor yazar. -->
+
+- What is **Empowered teams**? 🤔
+<!--businessle colloborate edip müşteriye hizmet etmeye çalışırlar. Feature deliver etmekten ziyade problem çözmeye odaklanırlar. -->
+![Empowered vs Featured teams](images/empowered-teams.png)
+
+<!--
+Empower takım olabilmek için: Takımınızda rockstarlar süperstarlar yıldız oyuncular olmasına gerek yok; gücü akıtabilirsek ordinary insanlar bir şeyler çıkarabilirler. Burada coaching çok önemli.
+
+Empower takımların olmazsa olmazı nelerdir?
+1- Coaching: Remote dünyada özellikle çok önemli. Ekibine yeni product manager geldiği zaman onunla baya zaman geçirmeniz gerekiyor. Customer feedbackleri ürün vs.
+2- Staffing: Doğru insanları bulmakta önemli. Bunları coach edip geliştirip sağlam takım arkadaşları haline getirmek. Recruitment HR aktivitesi olarak görülür; fakat bu bakış açısını değiştirmeniz lazım.
+3- Product Vision: Recruitment yaparken en önemli silahınız product’ınız olmalı. İnsanlara bu vision ilham vermeli. lead ettiğiniz ürünü 1 yıl sonra nerede görüyorsunuz?
+4- Product Strategy: Vision’a nasıl gidicez burada bir strateji lazım. Bu kolay bir şey değil. Öncelikle neyin önemli olduğuna karar vermek gerek. Data dan insightlar edilip, bunları aksiyona vs. dökmek gerekiyor.
+5- Colloboration: Sadece product takımlarını empower etmek yeterli değil. Company-wide bir collaboration olması gerekiyor.
+
+
+Asıl inovasyon teknoloji ekiplerinden gelir. O yüzden onları bu işin sürecine dahil etmelisiniz. Kafa yoran, müşteri için düşünen beyinler olmaya başladığımız an hepimiz o inovasyonu getirmeye başlıyoruz. Bu mesleği seçmemizin sebebi o. Biz problem çözmek için bu mesleği seçtik, birilerinin istediklerini kodlamak için değil.
+-->
