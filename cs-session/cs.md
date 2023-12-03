@@ -15,7 +15,7 @@ Abdulsamet İleri
 - Consensus Building
 - Radical Candor
 - Empowered Product Teams
-- Domain Driven Organization
+- Domain Driven Organization & Team topologies
 - Future Roadmap
 
 ---
@@ -226,3 +226,61 @@ Empower takımların olmazsa olmazı nelerdir?
 
 Asıl inovasyon teknoloji ekiplerinden gelir. O yüzden onları bu işin sürecine dahil etmelisiniz. Kafa yoran, müşteri için düşünen beyinler olmaya başladığımız an hepimiz o inovasyonu getirmeye başlıyoruz. Bu mesleği seçmemizin sebebi o. Biz problem çözmek için bu mesleği seçtik, birilerinin istediklerini kodlamak için değil.
 -->
+
+---
+
+# Domain Driven Organization
+
+- Strategic DDD
+<!--Starbucks örneği, personel, effective location, not only coffe -->
+  - Subdomains
+    - Core <!-- Stream aligned teams -->
+    - Generic <!-- Platform teams -->
+    - Supporting <!--Compilicated Sub-system Teams-->
+<!--
+Şirketin stratejisi üzerinde önemli yere sayıp.
+In-house, buy/adopt, outsource
+ -->
+  - Ubiquitious Language 
+<!--
+Ubiquitious language universal olmaması.
+Sadece o bounded context sınırları içerisinde tek, kesin ve tutarlı olması.
+ -->
+  - Bounded Context & Context Map 
+  <!--
+  Knowledge discovery noktasında Eventstorming etkisi büyük.
+
+  Problem space & solution space
+  Subdomain discover edilir, bounded context design edilir.
+
+  A bounded context’s size, by itself, is not a deciding factor. Models shouldn’t necessarily be big or small. Models need to be useful.
+
+  The wider the boundary of the ubiquitous language is, the harder it is to keep it consistent. It may be beneficial to divide a large ubiquitous language into smaller, more manageable problem domains, but striving for small bounded contexts can backfire too. The smaller they are, the more integration overhead the design induces.
+
+   Bir ekip birden fazla bounded context yönetebilir fakat bir bounded context’i birden fazla ekip yönetemez, orada sıkıntı çıkar iletişim ihtiyacı yaşanır.
+
+  Context map, integrating patternslerin overviewde gösterimi.
+  - Partnership (Beraber çalışıyolar)
+  - Shared kernel (Ortak lib, authorization lib)
+  - Conformist (Adamın modeline uyuyorsun)
+  - Anticorruption Layer (Adamın modeline uymak yerine bi mapper yazmak gibi)
+  - Open-Host Service (Anticorruption'ın tersi)
+  -->
+
+---
+
+# Team topologies
+
+- Stream aligned teams
+- Platform teams
+- Compilicated Sub-system Teams
+- Enable Team
+<!--
+Stream aligned teams: En hızlı bir şekilde feature geliştirip release etmeye odaklanır. Diğer tipteki takımlarda stream aligned takımların cognitive load’ını düşürmeye odaklanır.
+Platform teams: Stream aligned takımların ihtiyaç duyduğu platformları geliştirir ve long term de cost optimizasyonu ve delivery hızlarını hızlandıracak çözümler geliştirir.
+Compilicated Sub-system Teams: Special knowledge sahibidirler ve niş konulara girerler. Vector search çözümüne ihtiyacımız var. Bu takım gelir bu konuda uzman phd level oldukları için takımımızla colloborate eder ve geliştirip bize getirir.
+Enable Team: Stream aligned takımlarından enable’ini artırır. Mesela stream aligned team’ın test automation projesi yoktur bunlar geliştirir ve yol gösterirler.
+ -->
+
+
+<!--Team topologies de takımlar değerlendirilirken, DDD'de subdomainleri değerlendiriyoruz. -->
