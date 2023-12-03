@@ -146,3 +146,57 @@ Agreement’e zorlamayın.!!
 ---
 
 # Radical Candor
+
+<!-- 
+İnsanlar size güvendiklerinde ve onları gerçekten umursadığınızı bildiklerinde 
+- takdir ve eleştirilerinize daha fazla değer verirler,
+- size yaptıklarınızın sonuçları hakkında daha samimi geri bildirimde bulunurlar,
+- birbirleriyle daha uyumlu hareket etme eğilimi gösterirler,
+- ekip içindeki rollerine dört elle sarılırlar,
+- sonuçlara odaklanırlar.
+-->
+
+![h:400 w:600 Radical Candor](images/radical-candor.png)
+
+<!-- 
+Yıkıcı Empati: Ne zaman yalnızca nazik olmak ve karşınızdakini incitmemek içinbirisine geri bildirim vermekten kaçındınız?
+
+Manipülatör Samimiyetsizlik: Nihayet ve belki de en zoru, ne zaman birine bir sorunu doğrudan söylemeyip bunun yerine başkaları ile konuştunuz?
+-->
+
+- How to ask for feedback? 🤔
+<!--
+Have a go-to question (önemli bir soru sorun)
+evet hayır harici bir soru.
+
+Embrace the discomfort (rahatsızlığı kuçaklayın)
+
+Listen with the intent to understand, not to respond (tepki vermek niyetiyle değil, anlamak için dinleyin)
+
+Reward criticism to get more of it (samimiyeti ödüllendirin)
+ -->
+
+
+- How can you criticize the other person without discouraging him? 🤔
+
+<!-- 
+Karşınızdakinin cesaretini kırmadan onu nasıl eleştirebilirsiniz?
+- Eleştiriye açık olmak.
+- Övgünün eleştireye kıyasla öncelikli olması.
+- Alçak gönüllü olup, yardımcı olmaya çalışmak.
+- Kişisel olarak yardım ve rehberlik teklif etmekten kaçınmaMAk.
+- Övgüyü topluluk içinde, yergiyi bire bir yapmak.
+
+En önemlisi kişileştirmeMEk. Problemin kaynağının, çözülmesi mümkün olmayan bir karakter eksikliğinden kaynaklanmadığını mutlaka ifade edin.
+-->
+
+- DDEA Method 🛠️
+
+<!--
+Durum: Spesifik konuyu söyleyin.
+Davranış: Ne söylendiğini veya yapıldığını açıklayın.
+Etki: Davranışın etkilerini açıklayın
+Aksiyon: Davranışı değiştirmesi konusunda net aksiyonlar önerin.
+ -->
+
+<!-- Sen hatalısın yerine -> bu iş hatalı demek.-->
