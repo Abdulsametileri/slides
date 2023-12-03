@@ -282,5 +282,19 @@ Compilicated Sub-system Teams: Special knowledge sahibidirler ve niş konulara g
 Enable Team: Stream aligned takımlarından enable’ini artırır. Mesela stream aligned team’ın test automation projesi yoktur bunlar geliştirir ve yol gösterirler.
  -->
 
-
 <!--Team topologies de takımlar değerlendirilirken, DDD'de subdomainleri değerlendiriyoruz. -->
+
+---
+
+# Future Roadmap
+
+---
+
+Thank you ❤️❤️
+
+<!-- 
+Domain hakimiyetini artırmak ve insanlara güven aşılamak (sadece indexing'de değil, Ty için çalışıyorum.)
+Product Mindset noktasında ilerlemek. (Inspired, Empowered kitapları sırada.)
+Mentörlük ve colloboration kaslarını geliştirmek.
+İnsanları influence etme noktasında kendimi geliştirmek.
+-->
