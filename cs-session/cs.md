@@ -34,6 +34,27 @@ Abdulsamet İleri
 
 # My Analyse Points
 
+- [SPDA Reindex Problem - Replatforming Process](https://lucid.app/lucidchart/e7022ad8-72ac-4ba3-844e-cdcff77eadf3/edit?beaconFlowId=F722EBB899D61638&invitationId=inv_2ee143d6-0e4e-4e42-aad1-d3fd528c2f7a&page=uOxPpIozG-e9#)
+
+
+<!-- 
+Doğrudan başka domainin yönettiği DB vs. bağlanmamak, API altına almak, konuşmak. Event notification, veya event carried state transfer.
+  - Data maintain, eventual consistency olayları vs.
+
+IO Call az yapabilmek, datayı write/read nasıl yapıyorsak o şekilde tutmak. Paralelleştirebiliyor muyum? İlla sequential mı olmalı. Birkaç datayı tek döküman içerisinde tutmak vs.
+
+Akış sırasında bazı logicler gerçekten buradamı olmalı? Mesela event'i atan procen, datayı bizden almaya çalışıyolar vs caseleri. 
+
+Kafkayı, indexlemeyi ayırmak. Optimistic concurrency cas ile yönetmek.
+-->
+
+- [Deleting Product Contents That Haven't a Stock Update in the Last 9 Months](https://wiki.trendyol.com/display/INd/Deleting+Product+Contents+That+Haven%27t+a+Stock+Update+in+the+Last+9+Months)
+
+<!-- 
+Detaylıca SMART'a cevap verebilecek şekilde yazmaya çalışmak.
+
+Priority sıralaması yapmak. Bir projede 2 ayrı task conflict zorlugu heleki trunk based.
+-->
 
 ---
 
@@ -60,6 +81,7 @@ Alternatifleri konuşurken daima Pros dan başlayalım, cons’dan başlamayalı
 
 <!--
 Varsayma!
+
 Özel konuşulan şeyleri toplum içinde paylaşmayın.
 
 Dikte etmeyin, bırakın ekip karar alsın.
