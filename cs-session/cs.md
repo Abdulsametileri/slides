@@ -34,7 +34,7 @@ Abdulsamet İleri
 
 # My Analyse Points
 
-- [SPDA Reindex Problem - Replatforming Process](https://lucid.app/lucidchart/e7022ad8-72ac-4ba3-844e-cdcff77eadf3/edit?beaconFlowId=F722EBB899D61638&invitationId=inv_2ee143d6-0e4e-4e42-aad1-d3fd528c2f7a&page=uOxPpIozG-e9#)
+- [SPDA Reindex Problem - Replatforming Process](https://lucid.app/lucidchart/e7022ad8-72ac-4ba3-844e-cdcff77eadf3/edit?viewport_loc=-2811%2C-1720%2C4962%2C2202%2Czk_Qneb0~09a&invitationId=inv_2ee143d6-0e4e-4e42-aad1-d3fd528c2f7a)
 
 
 <!-- 
