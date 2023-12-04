@@ -245,6 +245,6 @@ Thank you ❤️❤️
 <!-- 
 Domain hakimiyetini artırmak ve insanlara güven aşılamak (sadece indexing'de değil, Ty için çalışıyorum.)
 Product Mindset noktasında ilerlemek. (Inspired, Empowered kitapları sırada.)
-Mentörlük ve colloboration kaslarını geliştirmek.
+Mentörlük ve colloboration kaslarını geliştirmek. Conflict management okuyorum
 İnsanları influence etme noktasında kendimi geliştirmek.
 -->
