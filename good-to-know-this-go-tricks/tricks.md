@@ -16,6 +16,7 @@ Abdulsamet İleri
 - Read HttpBody even if don't need to read
 - Run your code exactly once (Singleton)
 - The beautify of `sync.Pool` 
+- Closely look at `worker pool` pattern
 
 ---
 
@@ -231,5 +232,49 @@ func releaseBuffer(b *bytes.Buffer) {
 		b.Reset()
 		bufferPool.Put(b)
 	}
+}
+```
+
+---
+
+# Closely look at `worker pool` pattern
+
+```go
+type workerPool struct {
+	wg    sync.WaitGroup
+	limit chan struct{}
+}
+
+func (l *workerPool) acquire() {
+	l.wg.Add(1)
+	l.limit <- struct{}{}
+}
+
+func (l *workerPool) wait() {
+	l.wg.Wait()
+}
+
+func (l *workerPool) release() {
+	<-l.limit
+	l.wg.Done()
+}
+```
+
+```go
+func (g *gcs) BatchConsume(messages []*kafka.Message) error {
+	fmt.Printf("Total number of messages %d\n", len(messages))
+
+	workers := &workerPool{limit: make(chan struct{}, 100)}
+	for i := range messages {
+		workers.acquire()
+
+		go func(message *kafka.Message) {
+			defer workers.release()
+			g.process(message)
+		}(messages[i])
+	}
+	workers.wait()
+
+	return nil
 }
 ```
