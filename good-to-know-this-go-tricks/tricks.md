@@ -15,7 +15,7 @@ Abdulsamet İleri
 - Custom Marshal/Unmarshal Functions
 - Read HttpBody even if don't need to read
 - Run your code exactly once (Singleton)
-- The beautify of `sync.Pool` 
+- The beauty of `sync.Pool` 
 - Closely look at `worker pool` pattern
 
 ---
