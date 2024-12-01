@@ -3,11 +3,11 @@ marp: true
 theme: default
 paginate: true
 author: Abdulsamet İleri
-#footer: Kafka Konsumer & Cronsumer
 style: |
   h1 {
     font-size: 30px;
   }
+
 ---
 <style scoped>
     h1 {
@@ -49,6 +49,12 @@ tüm consumerlar için eventual consistent handling
 - `v1.0.0` Jun 5, 2023, currently `v1.5.5`,  `14` contributors
 - Used by `100+` projects
 - Uses [segmentio/kafka-go](https://github.com/segmentio/kafka-go)
+
+<!-- 
+- high level kafka support api
+- context support
+-->
+
 ---
 
 # Kafka Konsumer
@@ -88,6 +94,8 @@ provides an easy implementation of Kafka consumer with a built-in retry/exceptio
 | ![](images/batch_supplier.png) | ![](images/batch_reindex.png) |
 |---------------------------------|------------------------------|
 | ![](images/batch_micro.png)    | ![](images/batch_price.png)  |
+
+<!-- segmentio da batch consumer diye bir şey olmaması. Bizim üzerine bir katman ile yazmamız -->
 
 ---
 
@@ -222,13 +230,29 @@ You can find a number of ready-to-run examples at [this directory.](https://gith
 
 ---
 
+Thank you to all contributors
+
+| ![](images/konsumer_contribs.png) | ![](images/cronsumer_contribs.png) |
+|--------------------------------|-------------------------------|
+
+---
+
 # Conclusion
 
 Thank you for listening
 
 - https://github.com/Trendyol/kafka-konsumer
-- https://github.com/Trendyol/kafka-cronsumer
+![](images/konsumer_qr.png)
 
-## Contact us
+- https://github.com/Trendyol/kafka-cronsumer
+![](images/cronsumer_qr.png)
+
+---
+
+# Contact us
+
 - #kafka-konsumer
 - https://pandora.trendyol.com/qa/kafka-konsumer
+
+We are open to hearing your voice and feedback. 
+Don’t hesitate to contact us and give ⭐️️ ⭐ ⭐️ 😄
