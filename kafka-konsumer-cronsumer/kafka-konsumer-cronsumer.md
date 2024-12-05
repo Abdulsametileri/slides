@@ -33,7 +33,7 @@ style: |
 - Backend dev, 2.5 years on Ty.
 - Seller product indexing team _(aggregation domain)_
 <!-- 
-total 3 trilyon content
+total 3 milyar content
 stock, price, variant, category, listing etc.
 kafka ile çok haşir neşiriz
 -->
