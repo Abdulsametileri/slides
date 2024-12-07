@@ -105,10 +105,13 @@ style: |
 # Kafka Konsumer Features with real-life examples
 
 ---
+<!-- _class: lead -->
 
 ### Distributed Tracing Support
 
-* `segmentio/kafka-go` has no opentelemetry support. [otel-kafka-konsumer](https://github.com/Trendyol/otel-kafka-konsumer) born!
+---
+
+- `segmentio/kafka-go` has no opentelemetry support. [otel-kafka-konsumer](https://github.com/Trendyol/otel-kafka-konsumer) born!
 
 <!--otel kafka konsumer'ı dist tracing segmentio ya entegre hali gibi düşünebiliriz. -->
 
@@ -118,7 +121,10 @@ style: |
 
 --- 
 
+<!-- _class: lead -->
 # Pause/Resume consumer
+
+---
 
 * We processed Brand messages in the evening, why?
 * ![brand h:310](images/brand.png)
@@ -137,24 +143,34 @@ Sisteme yük oluşturabilecek eventları gece işleme
 ![pause resume consumer with cron h:500](images/pause-resume-consumer-with-cron.png)
 
 ---
+<!-- _class: lead -->
 
 # Run pre-batch function for batch mode
 
-- `PreBatch` functions benefits _(same-key compaction, merging, pre-processing)_
+---
+
+![konsumer prebatch h:600](images/konsumer-prebatch.png)
+
+---
+
+- `PreBatch` functions has good benefits
+   * same-key compaction
+   * merging
+   * pre-processing
 
 <!--
 Compaction: same key ile
 Merging: Birbiri ile related eventleri birleştirme mesela n listing -> content bazlı birleştirme
 pre processing: event ignore, deserialization check
- -->
-
-<!--Use case: category events -->
-![](images/same-key-compaction.png)
+-->
 
 ---
 
-- Before Prebatch
-![](images/before-prebatch.png)
+### PreBatch: Same Key Compaction Example
+
+Category events ...
+
+* ![before prebatch w:800 h:250](images/before-prebatch.png)
 <!--
 Consumer'ı kapattık
 gece işleniyor birde. 
@@ -162,12 +178,26 @@ gece işleniyor birde.
 
 ---
 
-- After Prebatch
-![](images/after-prebatch.png)
+- ![Same Key Compaction h:550](images/same-key-compaction.png)
 
 ---
 
-- Merging listing events
+![Same Key Compaction PreBatch h:500](images/same-key-compaction-code.png)
+
+---
+
+
+- ![before prebatch w:800 h:250](images/before-prebatch.png)
+* ![after prebatch w:800 h:250](images/after-prebatch.png)
+
+---
+
+### PreBatch: Merging Example
+
+* Merging listing events
+
+---
+
 ![width:550px](images/merging_listing_events.png)
 
 ---
