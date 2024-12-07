@@ -1,138 +1,144 @@
 ---
 marp: true
-theme: default
-paginate: true
+theme: gaia
+transition: fade
 author: Abdulsamet İleri
+footer: '![w:150 h:150](images/tytech.png)'
 style: |
-  h1 {
-    font-size: 30px;
+  /* Generic image styling for number icons */
+  img:is([alt="1"], [alt="2"], [alt="3"], [alt="4"], [alt="5"]) {
+    height: 64px;
+    position: relative;
+    top: -0.1em;
+    vertical-align: middle;
+    width: 64px;
   }
 
----
-<style scoped>
-    h1 {
-        font-size: 90px;
-    }
-</style>
-
-# Kafka Konsumer & Cronsumer libraries
-
+  footer {
+    height: 150px;
+    /* Unset default placing inherited from the built-in theme */
+    left: auto;
+    right: auto;
+    top: auto;
+    right: 0px;
+    bottom: 0px;
+  }
 ---
 
 # Agenda
 
-- What is Kafka Cronsumer and Konsumer?
-- Kafka Konsumer Features with real-life examples
-- How Kafka Cronsumer is work? What is it's features?
-- Conclusion
+![1](https://icongr.am/material/numeric-1-circle.svg?color=666666) Introduction
+![2](https://icongr.am/material/numeric-2-circle.svg?color=666666) What is Kafka Cronsumer and Konsumer?
+![3](https://icongr.am/material/numeric-3-circle.svg?color=666666) Kafka Konsumer Features with real-life examples
+![4](https://icongr.am/material/numeric-4-circle.svg?color=666666) How Kafka Cronsumer is work? What is it's features?
+![5](https://icongr.am/material/numeric-5-circle.svg?color=666666) Conclusion
 
 ---
 
-# Me
+<!-- _class: lead -->
 
-- Backend dev, 2.5 years on Ty.
-- Seller product indexing team _(aggregation domain)_
-<!-- 
-total 3 milyar content
-stock, price, variant, category, listing etc.
-kafka ile çok haşir neşiriz
--->
+![1 w:256 h:256](https://icongr.am/material/numeric-1-circle.svg?color=ff9900)
 
+# Introduction
+
+---
+
+#### Abdulsamet İleri
+
+* Backend dev, +2.5 years on Ty.
+* Seller Product Indexing Team _(aggregation domain)_
+  * aggregate stock, price, variant, category, listing etc.
+  * total 3b content
+  * daily 1b invalidations
+  * 11 consumers
 --- 
 
-# Kafka Cronsumer
-<!-- 
-İhtiyaçı anlatalım, 
-tüm consumerlar için eventual consistent handling 
--->
-- [**Kafka Cronsumer**](https://github.com/Trendyol/kafka-cronsumer) is mainly used for retry/exception strategy management. It works based on **cron** expression and consumes messages in a timely manner with the power of auto pause and **concurrency**.
-- `v1.0.0` Jun 5, 2023, currently `v1.5.5`,  `14` contributors
-- Used by `100+` projects
-- Uses [segmentio/kafka-go](https://github.com/segmentio/kafka-go)
+<!-- _class: lead -->
 
-<!-- 
-- high level kafka support api
-- context support
--->
+![2 w:256 h:256](https://icongr.am/material/numeric-2-circle.svg?color=ff9900)
+
+# What is Kafka Cronsumer and Konsumer?
+
+---
+
+# Kafka C{r}onsumer
+
+* Used for retry/exception strategy management
+* Used by `100+` projects in Ty
+* Uses [segmentio/kafka-go](https://github.com/segmentio/kafka-go)
+* ![cronsumer w:990px](images/cronsumer-hello.png)
+
+<!--
+`v1.0.0` Jun 5, 2023, currently `v1.5.5`,  `14` contributors
+ -->
 
 ---
 
 # Kafka Konsumer
-<!--
-Önce neden çıktı ondan bahsedelim,
-bir sürü consumer projesinde ihtiyaç olan
-- boilerplate Kafka initialization codes
-- to handle exceptions with an eventual strategy
-- exposing processed event metrics, defining alerts, and more!
+
+* Kafka consumer library with a built-in retry/exception manager (kafka-cronsumer)
+* Used by `100+` projects in Ty
+* Uses [segmentio/kafka-go](https://github.com/segmentio/kafka-go)
+
+<!-- 
+* `v1.0.0` Jun 5, 2023, currently `v2.4.6`,  `21` contributors
 -->
 
-- [**Kafka Konsumer**](https://github.com/Trendyol/kafka-konsumer)
-provides an easy implementation of Kafka consumer with a built-in retry/exception manager (kafka-cronsumer)
-- `v1.0.0` Jun 5, 2023, currently `v2.4.6`,  `21` contributors
-- Used by `100+` projects
-- Uses [segmentio/kafka-go](https://github.com/segmentio/kafka-go)
-  
 ---
 
-# Kafka Konsumer Features
-
-- Built-in retry/exception handling support
-- High-performance batch-consuming
-- Distributed Tracing (Opentelemetry) support
-- Pause/Resume consumer any time
-- Run pre-batch function for batch mode
-- Error-Only Retry for batch consuming
-- Skip Message By Header Feature
-- Metric collector support (exposed useful metrics)
-- Scram — Plain Text Authentication & TLS Support
-- Kafka Producer Support
+![konsumer h:600](images/konsumer-hello.png)
 
 ---
 
-# High-Performance batch consuming
-
-| ![](images/batch_supplier.png) | ![](images/batch_reindex.png) |
-|---------------------------------|------------------------------|
-| ![](images/batch_micro.png)    | ![](images/batch_price.png)  |
-
-<!-- segmentio da batch consumer diye bir şey olmaması. Bizim üzerine bir katman ile yazmamız -->
+![konsumer batch h:600](images/konsumer-batch-hello.png)
 
 ---
 
-# Feature: Distributed Tracing Support
+![konsumer producer h:600](images/konsumer-producer-hello.png)
 
-- `segmentio/kafka-go` has no opentelemetry support. [otel-kafka-konsumer](https://github.com/Trendyol/otel-kafka-konsumer) born!
+---
+
+<!-- _class: lead -->
+
+![3 w:256 h:256](https://icongr.am/material/numeric-3-circle.svg?color=ff9900)
+
+# Kafka Konsumer Features with real-life examples
+
+---
+
+### Distributed Tracing Support
+
+* `segmentio/kafka-go` has no opentelemetry support. [otel-kafka-konsumer](https://github.com/Trendyol/otel-kafka-konsumer) born!
 
 <!--otel kafka konsumer'ı dist tracing segmentio ya entegre hali gibi düşünebiliriz. -->
 
-![width:1000px](images/dist-tracing.png)
+* ![w:900px center](images/dist-tracing.png)
 
 <!--tek satır bir boolean flag vererek, enable edebiliyoruz -->
 
 --- 
 
-# Feature: Pause/Resume consumer
+# Pause/Resume consumer
 
-```go
-consumer, _ := kafka.NewConsumer(consumerCfg)
-defer consumer.Stop()
+* We processed Brand messages in the evening, why?
+* ![brand h:310](images/brand.png)
 
-consumer.Consume()
-
-consumer.Pause()
-// ..
-consumer.Resume()
-```
-
-![](images/brand.png)
-
-<!--Sisteme yük oluşturabilecek eventları gece işleme 
+<!--
+Sisteme yük oluşturabilecek eventları gece işleme 
 1 brand eventi, milyonlarca content'e hit edebilir.
 -->
 
 ---
 
-# Feature: Run pre-batch function for batch mode
+![pause resume consumer h:500](images/pause-resume-consumer.png)
+
+---
+
+![pause resume consumer with cron h:500](images/pause-resume-consumer-with-cron.png)
+
+---
+
+# Run pre-batch function for batch mode
 
 - `PreBatch` functions benefits _(same-key compaction, merging, pre-processing)_
 
@@ -179,6 +185,31 @@ gece işleniyor birde.
 ---
 
 ![width:900px](images/skipbyheader-2.png)
+
+---
+
+# Kafka Konsumer Features
+
+- Built-in retry/exception handling support
+- High-performance batch-consuming
+- Distributed Tracing (Opentelemetry) support
+- Pause/Resume consumer any time
+- Run pre-batch function for batch mode
+- Error-Only Retry for batch consuming
+- Skip Message By Header Feature
+- Metric collector support (exposed useful metrics)
+- Scram — Plain Text Authentication & TLS Support
+- Kafka Producer Support
+
+---
+
+# High-Performance batch consuming
+
+| ![](images/batch_supplier.png) | ![](images/batch_reindex.png) |
+|---------------------------------|------------------------------|
+| ![](images/batch_micro.png)    | ![](images/batch_price.png)  |
+
+<!-- segmentio da batch consumer diye bir şey olmaması. Bizim üzerine bir katman ile yazmamız -->
 
 ---
 
@@ -256,3 +287,4 @@ Thank you for listening
 
 We are open to hearing your voice and feedback. 
 Don’t hesitate to contact us and give ⭐️️ ⭐ ⭐️ 😄
+
