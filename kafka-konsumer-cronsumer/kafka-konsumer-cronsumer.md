@@ -6,7 +6,7 @@ author: Abdulsamet İleri
 footer: '![w:150 h:150](images/tytech.png)'
 style: |
   /* Generic image styling for number icons */
-  img:is([alt="1"], [alt="2"], [alt="3"], [alt="4"], [alt="5"]) {
+  img:is([alt="1"], [alt="2"], [alt="3"], [alt="4"], [alt="5"], [alt="6"]) {
     height: 64px;
     position: relative;
     top: -0.1em;
@@ -28,10 +28,11 @@ style: |
 # Agenda
 
 ![1](https://icongr.am/material/numeric-1-circle.svg?color=666666) Introduction
-![2](https://icongr.am/material/numeric-2-circle.svg?color=666666) What is Kafka Cronsumer and Konsumer?
-![3](https://icongr.am/material/numeric-3-circle.svg?color=666666) Kafka Konsumer Features with real-life examples
-![4](https://icongr.am/material/numeric-4-circle.svg?color=666666) How Kafka Cronsumer is work? What is it's features?
-![5](https://icongr.am/material/numeric-5-circle.svg?color=666666) Conclusion
+![2](https://icongr.am/material/numeric-2-circle.svg?color=666666) Why we build these libraries?
+![3](https://icongr.am/material/numeric-3-circle.svg?color=666666) What is Kafka Cronsumer and Konsumer?
+![4](https://icongr.am/material/numeric-4-circle.svg?color=666666) Kafka Konsumer Features with real-life examples
+![5](https://icongr.am/material/numeric-5-circle.svg?color=666666) How Kafka Cronsumer is work? What is it's features?
+![6](https://icongr.am/material/numeric-6-circle.svg?color=666666) Conclusion
 
 ---
 
@@ -52,10 +53,25 @@ style: |
   * daily 1b invalidations
   * 11 consumers
 --- 
-
 <!-- _class: lead -->
 
 ![2 w:256 h:256](https://icongr.am/material/numeric-2-circle.svg?color=ff9900)
+
+# Why we build these libraries?
+
+---
+  * Boilerplate Kafka initialization codes
+  * So much repo and consumer to maintain
+  * Exception management 
+  * Change management
+  * Realized need to change only consumer group and business code. 
+  * To handle exceptions with an eventual strategy
+  * Alert & metrics, abstract away cross cutting concerns
+---
+
+<!-- _class: lead -->
+
+![3 w:256 h:256](https://icongr.am/material/numeric-3-circle.svg?color=ff9900)
 
 # What is Kafka Cronsumer and Konsumer?
 
@@ -100,7 +116,7 @@ style: |
 <!-- _class: lead -->
 
 # High-Performance batch consuming
-
+<!-- neden batch tercih ettik, single +, -si -->
 ---
 
 - ![h:250](images/batch_supplier.png)
@@ -115,14 +131,14 @@ style: |
 
 <!-- _class: lead -->
 
-![3 w:256 h:256](https://icongr.am/material/numeric-3-circle.svg?color=ff9900)
+![4 w:256 h:256](https://icongr.am/material/numeric-4-circle.svg?color=ff9900)
 
 # Kafka Konsumer Features with real-life examples
 
 ---
 <!-- _class: lead -->
 
-### Distributed Tracing Support
+## Distributed Tracing Support
 
 ---
 
@@ -147,6 +163,8 @@ style: |
 <!--
 Sisteme yük oluşturabilecek eventları gece işleme 
 1 brand eventi, milyonlarca content'e hit edebilir.
+
+segmentio'da böyle bir feature yok
 -->
 
 ---
@@ -265,59 +283,76 @@ gece işleniyor birde.
 * Metric collector support (exposed useful metrics), SASL & TLS more..
 
 ---
-
+<!-- _class: lead -->
 # Behind the scenes: Kafka Cronsumer
-
-| ![](images/listing_exception.png) | ![](images/price_exception.png) |
-|---------------------------------|------------------------------|
-| ![](images/stock_exception.png)    | ![](images/content_exception.png)  |
 
 ---
 
-# Architecture
+![h:270](images/listing_exception.png)
+![h:275](images/content_exception.png)
 
-![](images/cronsumer-architecture.png)
+---
+
+![h:270](images/price_exception.png)
+![h:287](images/stock_exception.png) 
+
+---
+
+<!-- _class: lead -->
+# How Cronsumer works?
+
+---
+
+![h:600](images/cronsumer-architecture-init.png)
+
+---
+
+![h:600](images/cronsumer-architecture-first-iteration.png)
+
+---
+
+![h:600](images/cronsumer-architecture-second-iteration.png)
+
+---
+
+![h:600](images/cronsumer-architecture-third-iteration.png)
 
 ---
 
 # Kafka Cronsumer Features
 
-- Deadletter support
-- Backoff strategy support _(linear, fixed, and exponential options)_
-- Header filter support
-- Metric Collector support
-  - kafka_cronsumer_retried_messages_total
-  - kafka_cronsumer_discarded_messages_total
-- `x-error-message` support 
+* Deadletter support
+* Backoff strategy support _(linear, fixed, and exponential options)_
+* Header filter support
+* Metric Collector support (retried, discarded)
+* `x-error-message` support 
 <!--bir mesajın neden exception topic'e düştüğünü bu header'a bakarak görebiliyoruz -->
-
-You can find a number of ready-to-run examples at [this directory.](https://github.com/Trendyol/kafka-cronsumer/tree/main/examples)
 
 ---
 
 # Kafka Cronsumer:  When to use it? 🤔
 
-- Iteration-based back-off strategies are applicable
-- Messages could be processed in an eventually consistent state
-- Max retry exceeded messages could be ignored
-- To increase consumer resiliency
-- To increase consumer performance with concurrency
+* Iteration-based back-off strategies are applicable
+* Messages could be processed in an eventually consistent state
+* Max retry exceeded messages could be ignored
+* To increase consumer resiliency
+* To increase consumer performance with concurrency
 
 ---
 
 # Kafka Cronsumer: When to avoid? ❗️
 
-- Messages should be processed in order
-- Messages should be certainly processed _(we discard messages if max retry is exceeded or move to dead letter topic)_
-- Messages should be committed _(we use auto-commit interval for increasing performance)_
-- Messages with TTL (Time to Live)
+* Messages should be processed in order
+* Messages should be certainly processed _(we discard messages if max retry is exceeded or move to dead letter topic)_
+* Messages should be committed _(we use auto-commit interval for increasing performance)_
+* Messages with TTL (Time to Live)
 
 ---
 
 Thank you to all contributors
 
-| ![](images/konsumer_contribs.png) | ![](images/cronsumer_contribs.png) |
-|--------------------------------|-------------------------------|
+![h:230](images/konsumer_contribs.png)
+![h:184](images/cronsumer_contribs.png)
 
 ---
 
@@ -326,18 +361,19 @@ Thank you to all contributors
 Thank you for listening
 
 - https://github.com/Trendyol/kafka-konsumer
-![](images/konsumer_qr.png)
+![h:150](images/konsumer_qr.png)
 
 - https://github.com/Trendyol/kafka-cronsumer
-![](images/cronsumer_qr.png)
+![h:150](images/cronsumer_qr.png)
 
 ---
-
-# Contact us
-
-- #kafka-konsumer
-- https://pandora.trendyol.com/qa/kafka-konsumer
+<!-- _class: lead -->
 
 We are open to hearing your voice and feedback. 
 Don’t hesitate to contact us and give ⭐️️ ⭐ ⭐️ 😄
+
+Any questions?
+---
+
+
 
