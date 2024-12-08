@@ -97,6 +97,21 @@ style: |
 ![konsumer producer h:600](images/konsumer-producer-hello.png)
 
 ---
+<!-- _class: lead -->
+
+# High-Performance batch consuming
+
+---
+
+- ![h:250](images/batch_supplier.png)
+* ![h:270](images/batch_micro.png)
+
+---
+
+- ![h:270](images/batch_reindex.png) 
+* ![h:270](images/batch_price.png)
+
+---
 
 <!-- _class: lead -->
 
@@ -126,7 +141,7 @@ style: |
 
 ---
 
-* We processed Brand messages in the evening, why?
+- We processed Brand messages in the evening, why?
 * ![brand h:310](images/brand.png)
 
 <!--
@@ -198,48 +213,56 @@ gece işleniyor birde.
 
 ---
 
-![width:550px](images/merging_listing_events.png)
+![w:550px](images/merging_listing_events.png)
 
 ---
 
-# Feature: Error-Only Retry for batch consuming
+#  Error-Only Retry for batch consuming
 
-![width:900px](images/erroronlybatch.png)
+![w:900px h:500px](images/erroronlybatch.png)
+
+---
+ 
+![error only batch code example h:475](images/erroronlybatch-code.png)
 
 ---
 
-# Feature: Skip Message By Header Feature
-
-![](images/skipbyheader.png)
+![error only batch exception topic example h:630](images/erroronlybatch-2.png)
 
 ---
 
-![width:900px](images/skipbyheader-2.png)
+# Skip Message By Header Feature
+
+* ![category usecase h:400px](images/skipbyheader-category.png)
+
+---
+
+![category consumer h:550px](images/skipbyheader-codebase.png)
+
+---
+
+![skip message by header func imp h:630](images/skipmessage-code.png)
+
+---
+
+![skip message overall arc h:490](images/skipbyheader.png)
+
+---
+
+![w:900px](images/skipbyheader-2.png)
 
 ---
 
 # Kafka Konsumer Features
 
-- Built-in retry/exception handling support
-- High-performance batch-consuming
-- Distributed Tracing (Opentelemetry) support
-- Pause/Resume consumer any time
-- Run pre-batch function for batch mode
-- Error-Only Retry for batch consuming
-- Skip Message By Header Feature
-- Metric collector support (exposed useful metrics)
-- Scram — Plain Text Authentication & TLS Support
-- Kafka Producer Support
-
----
-
-# High-Performance batch consuming
-
-| ![](images/batch_supplier.png) | ![](images/batch_reindex.png) |
-|---------------------------------|------------------------------|
-| ![](images/batch_micro.png)    | ![](images/batch_price.png)  |
-
-<!-- segmentio da batch consumer diye bir şey olmaması. Bizim üzerine bir katman ile yazmamız -->
+* Built-in retry/exception handling support
+* High-performance batch-consuming
+* Distributed Tracing (Opentelemetry) support
+* Pause/Resume consumer any time
+* Run pre-batch function for batch mode
+* Error-Only Retry for batch consuming
+* Skip Message By Header Feature
+* Metric collector support (exposed useful metrics), SASL & TLS more..
 
 ---
 
